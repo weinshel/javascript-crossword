@@ -132,10 +132,10 @@ function Crossw1rd(container_id) {
   // draw clues
   this.drawClues = function() {
     var cluediv = $('<div class="clues"></div>').appendTo(this.container);
-    cluediv.append('<div class="panel-heading"><h4 class="panel-title">Across</h4></div>');
-    var aol = $('<div class="panel-body"></div>').appendTo(cluediv);
-    cluediv.append('<div class="panel-heading"><h4 class="panel-title">Down</h4></div>');
-    var dol = $('<div class="panel-body"></div>').appendTo(cluediv);
+    cluediv.append('<h4 class="cluelabel">Across</h4>');
+    var aol = $('<div class="across scroll-pane"></div>').appendTo(cluediv);
+    cluediv.append('<h4 class="cluelabel">Down</h4>');
+    var dol = $('<div class="down scroll-pane"></div>').appendTo(cluediv);
     for (var i=0; i<this.clues.length; i++) {
       var clue = this.clues[i];
       var li;
