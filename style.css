@@ -43,7 +43,7 @@
 }
 
 .letter {
-  font-family: courier;
+  font-family: "Courier New", Courier, monospace;
   font-size: 20px;
   position: relative;
   top: 4px;
@@ -92,7 +92,7 @@
 }
 
 /* CSSButtonGenerator.com */
-/*.controls button {
+.controls button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -122,5 +122,5 @@
 .controls button:active {
 	position:relative;
 	top:1px;
-}*/
+}
 
