@@ -175,6 +175,7 @@ function Crossw1rd(container_id) {
   this.drawControls = function() {
     var div = $('<div class="controls"></div>').appendTo(this.container);
     var reset = $('<button>Reset</button>').appendTo(div);;
+    // var reset = $('<button type="button" class="btn btn-default">Reset</button>').appendTo(div);;
     reset.click(this.reset);
   }
 

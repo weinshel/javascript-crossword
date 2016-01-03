@@ -43,7 +43,7 @@
 }
 
 .letter {
-  font-family: courier;
+  font-family: "Courier New", Courier, monospace;
   font-size: 20px;
   position: relative;
   top: 4px;
