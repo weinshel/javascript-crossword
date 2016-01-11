@@ -413,17 +413,17 @@ function Crossw1rd(container_id) {
       return false;
     });
     // backspace - clear current cell and move left within current word
-  $(document).keydown(function (e) {
-    if (e.which === 8) {
-      var c = self.grid.find(".active");
-      if (c.length==0) return;
-      c.find('.letter').text('');
-      self.saved = false;
-      c.removeClass('incorrect');
-      c.removeClass('correct');
-      c = self.cellLeft(c);
-      if (c.length>0) c.click();
-      return false;
+    $(document).keydown(function (e) {
+      if (e.which === 8) {
+        var c = self.grid.find(".active");
+        if (c.length==0) return;
+        c.find('.letter').text('');
+        self.saved = false;
+        c.removeClass('incorrect');
+        c.removeClass('correct');
+        c = self.cellLeft(c);
+        if (c.length>0) c.click();
+        return false;
       }
     });
     // delete - clear current cell
