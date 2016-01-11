@@ -1,4 +1,9 @@
 /*
+TODO: 
+add buttons for checking
+*/
+
+/*
 A browser-based crossword puzzle implemented in JavaScript
 Copyright (C) 2014  Matt Wiseley 
 
