@@ -5,9 +5,12 @@ add buttons for checking
 
 /*
 A browser-based crossword puzzle implemented in JavaScript
-Copyright (C) 2014  Matt Wiseley 
+Copyright (C) 2016 Ben Weinshel
 
-https://github.com/wiseley/javascript-crossword
+https://github.com/weinshel/javascript-crossword
+
+Based on code by Matt Wiseley, copyright (c) 2014
+available at https://github.com/wiseley/javascript-crossword
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
