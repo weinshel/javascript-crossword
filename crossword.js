@@ -1,8 +1,11 @@
 /*
 A browser-based crossword puzzle implemented in JavaScript
-Copyright (C) 2014  Matt Wiseley 
+Copyright (C) 2016 Ben Weinshel
 
-https://github.com/wiseley/javascript-crossword
+https://github.com/weinshel/javascript-crossword
+
+Based on code by Matt Wiseley, copyright (c) 2014
+available at https://github.com/wiseley/javascript-crossword
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -174,8 +177,15 @@ function Crossw1rd(container_id) {
   // draw controls
   this.drawControls = function() {
     var div = $('<div class="controls"></div>').appendTo(this.container);
+    var checkWord = $('<button>Check Current Word</button>').appendTo(div);;
+    checkWord.click(function() {
+      self.checkWord();
+    });
+    var checkPuzzle = $('<button>Check Puzzle</button>').appendTo(div);;
+    checkPuzzle.click(function() {
+      self.checkPuzzle();
+    });
     var reset = $('<button>Reset</button>').appendTo(div);;
-    // var reset = $('<button type="button" class="btn btn-default">Reset</button>').appendTo(div);;
     reset.click(this.reset);
   }
 
@@ -403,15 +413,18 @@ function Crossw1rd(container_id) {
       return false;
     });
     // backspace - clear current cell and move left within current word
-    $(document).bind('keydown', 'backspace', function() {
-      var c = self.grid.find(".active");
-      if (c.length==0) return;
-      c.find('.letter').text('');
-      self.saved = false;
-      c.removeClass('incorrect');
-      c.removeClass('correct');
-      c = self.cellLeft(c);
-      if (c.length>0) c.click();
+    $(document).keydown(function (e) {
+      if (e.which === 8) {
+        var c = self.grid.find(".active");
+        if (c.length==0) return;
+        c.find('.letter').text('');
+        self.saved = false;
+        c.removeClass('incorrect');
+        c.removeClass('correct');
+        c = self.cellLeft(c);
+        if (c.length>0) c.click();
+        return false;
+      }
     });
     // delete - clear current cell
     $(document).bind('keydown', 'del', function() {
@@ -507,7 +520,8 @@ function Crossw1rd(container_id) {
   /*** SAVE AND RESTORE PUZZLE STATE ***/
 
   // return serialized state of the current puzzle
-  // this weird format is used over something like JSON for compactness as the state is intended to be stored in browser cookies
+  // this weird format is used over something like JSON for compactness
+  // as the state is intended to be stored in browser cookies
   this.getState = function() {
     var delim = '|';
     var state = [delim]; // 1st char defines the row delimiter
