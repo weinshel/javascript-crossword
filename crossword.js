@@ -1,9 +1,4 @@
 /*
-TODO: 
-add buttons for checking
-*/
-
-/*
 A browser-based crossword puzzle implemented in JavaScript
 Copyright (C) 2016 Ben Weinshel
 
@@ -182,11 +177,16 @@ function Crossw1rd(container_id) {
   // draw controls
   this.drawControls = function() {
     var div = $('<div class="controls"></div>').appendTo(this.container);
-    var reset = $('<button>Reset</button>').appendTo(div);;
-    // var reset = $('<button type="button" class="btn btn-default">Reset</button>').appendTo(div);;
-    reset.click(this.reset);
+    var checkWord = $('<button>Check Current Word</button>').appendTo(div);;
+    checkWord.click(function() {
+      self.checkWord();
+    });
     var checkPuzzle = $('<button>Check Puzzle</button>').appendTo(div);;
-    checkPuzzle.click(self.checkPuzzle);
+    checkPuzzle.click(function() {
+      self.checkPuzzle();
+    });
+    var reset = $('<button>Reset</button>').appendTo(div);;
+    reset.click(this.reset);
   }
 
   // set container dimensions based on grid size
