@@ -177,6 +177,8 @@ function Crossw1rd(container_id) {
     var reset = $('<button>Reset</button>').appendTo(div);;
     // var reset = $('<button type="button" class="btn btn-default">Reset</button>').appendTo(div);;
     reset.click(this.reset);
+    var checkPuzzle = $('<button>Check Puzzle</button>').appendTo(div);;
+    checkPuzzle.click(self.checkPuzzle);
   }
 
   // set container dimensions based on grid size
@@ -403,7 +405,8 @@ function Crossw1rd(container_id) {
       return false;
     });
     // backspace - clear current cell and move left within current word
-    $(document).bind('keydown', 'backspace', function() {
+  $(document).keydown(function (e) {
+    if (e.which === 8) {
       var c = self.grid.find(".active");
       if (c.length==0) return;
       c.find('.letter').text('');
@@ -412,6 +415,8 @@ function Crossw1rd(container_id) {
       c.removeClass('correct');
       c = self.cellLeft(c);
       if (c.length>0) c.click();
+      return false;
+      }
     });
     // delete - clear current cell
     $(document).bind('keydown', 'del', function() {
