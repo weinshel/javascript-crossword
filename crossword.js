@@ -507,7 +507,8 @@ function Crossw1rd(container_id) {
   /*** SAVE AND RESTORE PUZZLE STATE ***/
 
   // return serialized state of the current puzzle
-  // this weird format is used over something like JSON for compactness as the state is intended to be stored in browser cookies
+  // this weird format is used over something like JSON for compactness
+  // as the state is intended to be stored in browser cookies
   this.getState = function() {
     var delim = '|';
     var state = [delim]; // 1st char defines the row delimiter
